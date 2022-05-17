@@ -13,7 +13,6 @@ import sys
 
 import requests
 from bs4 import BeautifulSoup
-from termcolor import colored
 
 if sys.version > '3':
     from urllib.parse import urlparse, urlunsplit, urljoin, quote
@@ -25,11 +24,9 @@ re_css_url = re.compile(r'(url\(.*?\))')
 webpage2html_cache = {}
 
 
-def log(s, color=None, on_color=None, attrs=None, new_line=True):
+def log(s, attrs=None, new_line=True):
     if not color:
         print(str(s), end=' ', file=sys.stderr)
-    else:
-        print(colored(str(s), color, on_color, attrs), end=' ', file=sys.stderr)
     if new_line:
         sys.stderr.write('\n')
     sys.stderr.flush()
